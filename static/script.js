@@ -12,25 +12,35 @@ let charIndex = 0;
 let typingSpeed = 100;
 let erasingSpeed = 80;
 let typingElement = document.getElementById("typing");
+let typingTimeout = null;
+
+function clearTyping() {
+    if (typingTimeout) {
+        clearTimeout(typingTimeout);
+        typingTimeout = null;
+    }
+}
 
 function type() {
+    clearTyping();
     if (charIndex < text[index].length) {
         typingElement.textContent += text[index][charIndex];
         charIndex++;
-        setTimeout(type, typingSpeed);
+        typingTimeout = setTimeout(type, typingSpeed);
     } else {
-        setTimeout(erase, 1200);
+        typingTimeout = setTimeout(erase, 1200);
     }
 }
 
 function erase() {
+    clearTyping();
     if (charIndex > 0) {
         typingElement.textContent = text[index].substring(0, charIndex - 1);
         charIndex--;
-        setTimeout(erase, erasingSpeed);
+        typingTimeout = setTimeout(erase, erasingSpeed);
     } else {
         index = (index + 1) % text.length;
-        setTimeout(type, 300);
+        typingTimeout = setTimeout(type, 300);
     }
 }
 
@@ -83,6 +93,8 @@ function switchLanguage() {
     index = 0;
     charIndex = 0;
     typingElement.textContent = "";
+
+    clearTyping();
     type();
 
     translateBtn.textContent = currentLang === "pt" ? "EN" : "PT";
@@ -90,3 +102,5 @@ function switchLanguage() {
 
 const translateBtn = document.getElementById("translateBtn");
 translateBtn.addEventListener("click", switchLanguage);
+
+
