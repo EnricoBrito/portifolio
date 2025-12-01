@@ -300,4 +300,11 @@ span{
         height: 3rem;
         font-size: 1.5rem;
     }
+
+     .typing-text {
+        width: 100%;
+        white-space: normal;  
+        word-break: break-word;
+        display: inline-block;
+     }
 }
