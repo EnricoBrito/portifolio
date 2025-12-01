@@ -53,12 +53,12 @@ const translations = {
         t3: "Desenvolvo automações inteligentes, sites modernos e softwares sob medida para necessidades empresariais.",
         t4: "Entre em contato",
         typing: [
-            "Desenvolvimento.",
+            "Desenvolvimento Software.",
             "Automações.",
             "Full Stack.",
             "APIs.",
             "Inteligência Artificial.",
-            "Software."
+            "Sites."
         ]
     },
     en: {
@@ -67,12 +67,12 @@ const translations = {
         t3: "I develop intelligent automations, modern websites and custom software for business needs.",
         t4: "Contact me",
         typing: [
-            "Development.",
+            "Software.",
             "Automation.",
             "Full Stack.",
             "APIs.",
             "Artificial Intelligence.",
-            "Software."
+            "Sites."
         ]
     }
 };
